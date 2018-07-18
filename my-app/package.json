@@ -1,0 +1,36 @@
+{
+  "eslintConfig": {
+    "extends": "./node_modules/react-scripts/config/eslint.js",
+    "env": {
+      "browser": true,
+      "mocha": true,
+      "node": true
+    },
+    "rules": {
+      "strict": 0
+    }
+  },
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "express": "^4.16.2",
+    "morgan": "^1.9.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "set PORT=8080 && react-scripts start",
+    "start:server": "node server",
+    "build": "react-scripts build",
+    "test": "mocha test",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
+  }
+}
