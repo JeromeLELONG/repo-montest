@@ -12,6 +12,7 @@ console.log("OK");
 const connection = mysql.createConnection({
   host: 'bdmbia0py-mysql.services.clever-cloud.com',
   user: 'uxowyvbiemkxwjij',
+  password: 'bSxBwfwDM5eknHvcM2q',
   database: 'bdmbia0py'
 });
 
