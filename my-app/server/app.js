@@ -2,9 +2,28 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const mysql = require('mysql2');
+
 
 const app = express();
 console.log("OK");
+
+// create the connection to database
+const connection = mysql.createConnection({
+  host: 'bdmbia0py-mysql.services.clever-cloud.com',
+  user: 'uxowyvbiemkxwjij',
+  database: 'bdmbia0py'
+});
+
+// simple query
+connection.query(
+  'SELECT * FROM `users`',
+  function(err, results, fields) {
+    console.log(results); // results contains rows returned by server
+    console.log(fields); // fields contains extra meta data about results, if available
+  }
+);
+
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
