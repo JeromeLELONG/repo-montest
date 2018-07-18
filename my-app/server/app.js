@@ -8,6 +8,7 @@ const mysql = require('mysql2');
 const app = express();
 console.log("OK");
 
+try {
 // create the connection to database
 const connection = mysql.createConnection({
   host: 'bdmbia0py-mysql.services.clever-cloud.com',
@@ -24,7 +25,12 @@ connection.query(
     console.log(fields); // fields contains extra meta data about results, if available
   }
 );
+} catch (error) {
+  logger.error(error);
+  throw error;
+}
 
+connection.
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 
