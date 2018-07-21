@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const mysql = require('mysql2');
+var LDAP = require('ldap-client');
 
 
 const app = express();
