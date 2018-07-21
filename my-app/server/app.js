@@ -3,6 +3,8 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const mysql = require('mysql2');
+var LDAP = require('ldap-client');
+var http = require('http');
 
 
 const app = express();
@@ -29,6 +31,26 @@ connection.query(
   logger.error(error);
   throw error;
 }
+
+
+var options = {
+  host: 'apachedocker',
+  path: '/'
+}
+var request = http.request(options, function (res) {
+  var data = '';
+  res.on('data', function (chunk) {
+      data += chunk;
+  });
+  res.on('end', function () {
+      console.log(data);
+
+  });
+});
+request.on('error', function (e) {
+  console.log(e.message);
+});
+request.end();
 
 
 // Setup logger
