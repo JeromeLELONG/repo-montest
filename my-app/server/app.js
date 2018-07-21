@@ -35,7 +35,8 @@ connection.query(
 
 var options = {
   host: 'apachedocker',
-  path: '/'
+  path: '/',
+  port: 8080,
 }
 var request = http.request(options, function (res) {
   var data = '';
